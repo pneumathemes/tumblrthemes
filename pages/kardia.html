@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <title>kardia: an about page.</title>
+    <!--change the title of the page here! this will appear as the title at your current tab.-->
+
+    <link rel="shortcut icon" href="{Favicon}" />
+    <link rel="alternate" type="application/rss+xml" href="{RSS}" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--
+ 
+    Page #01: Kardia
+    coded by pneuma-themes
+    
+    1. Don't remove the credit.
+    2. Don't move the credit. Just leave it there.
+    3. Don't use as a base code.
+    4. Please enjoy! If you find any bugs, please contact me! c:
+    
+    -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+      const storedTheme =
+        localStorage.getItem("theme") ||
+        (window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light");
+      if (storedTheme)
+        document.documentElement.setAttribute("data-theme", storedTheme);
+    </script>
+
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.js"></script>
+
+    <style type="text/css">
+      @import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+      
+      /*attention! to change the colors of the page, look below!*/
+      /*make changes here to change the colors on light mode. please leave LightOn and LightOff variables be!*/
+      :root,
+      html[data-theme="light"] {
+        --LightOn: flex;
+        --LightOff: none;
+        --accent: #6465a6;
+        --body: #1f1f1f;
+        --background: #fff;
+        --border: #eee;
+        --Columns:3;
+        --Column-Spacing:15px;
+        --Item-Spacing:15px;
+      }
+      
+      /*make changes here to change the colors on dark mode. please leave LightOn and LightOff variables be!*/
+      html[data-theme="dark"] {
+        --LightOn: none;
+        --LightOff: flex;
+        --body: #d3d4d4;
+        --border: #d3d4d4;
+        --background: #1a1a1a;
+      }
+
+      html.theme-transition,
+      html.theme-transition *,
+      html.theme-transition *:before,
+      html.theme-transition *:after {
+        transition: 0s !important;
+        transition-delay: 0 !important;
+      }
+
+      iframe.tmblr-iframe {
+        display: none !important;
+      }
+      
+      ::-webkit-scrollbar{
+          width:6px;
+      }
+      
+      ::-webkit-scrollbar-thumb:vertical{
+          background:var(--accent);
+          height:auto;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "PT Sans";
+        font-size: 14px;
+        color: var(--body);
+        background: var(--background);
+      }
+
+      a {
+        text-decoration: none;
+        color: var(--body);
+      }
+      
+      .tippy-box{
+          background:var(--accent);
+          color:#fff;
+          font-size:12px;
+}
+
+      #decorative-sidebar {
+        width: 15px;
+        height: 100%;
+        background: var(--accent);
+        position: fixed;
+        left: 0;
+        top: 0;
+      }
+
+      #sidebar {
+        width: 350px;
+        height: 100%;
+        position: fixed;
+        left: 15px;
+        top: 0;
+      }
+
+      #sidebar-content {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        min-height: 150px;
+        margin-top: 100px;
+      }
+
+      #sidebar-image {
+        width: 64px;
+        height: 64px;
+        padding: 5px;
+        margin-right: 20px;
+        border: 1px solid var(--border);
+        /**delete this line if you want a square icon**/
+        border-radius: 100%;
+      }
+
+      #sidebar-image img {
+        width: 64px;
+        height: 64px;
+        max-width: 64px;
+        max-height: 64px;
+        /**delete this line if you want a square icon**/
+        border-radius: 100%;
+      }
+
+      #title {
+        font-family: "PT Serif";
+        font-size: 20px;
+        text-align: center;
+        font-weight: 700;
+        padding: 10px;
+      }
+
+      #desc {
+        border: 1px solid var(--border);
+        text-align: justify;
+        padding: 20px;
+        margin: 20px;
+        /*delete this line if you want a sharp border*/
+        border-radius: 5px;
+      }
+
+      #desc a{
+          color:var(--accent);
+          font-weight:700;
+      }
+
+      #navigation {
+        width: 100%;
+        display: flex;
+        margin: 20px;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .navigation-links a {
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: 700;
+        box-shadow: 0 -5px inset var(--accent);
+        margin-right: 15px;
+      }
+
+      .navigation-links a:last-child {
+        margin-right: 0;
+      }
+
+      #credit {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        background: var(--background);
+        padding: 10px;
+        text-align: center;
+        font-size: 12px;
+        border: 1px solid var(--accent);
+      }
+
+      #credit a {
+        color: var(--accent);
+      }
+
+      .dark-switch {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        width: 20px;
+        padding: 10px;
+        height: 20px;
+        font-size: 20px;
+        border: 1px solid var(--border);
+        text-align: center;
+        /*delete this line if you want a sharp border*/
+        border-radius: 5px;
+        color: var(--body);
+      }
+
+      .light-on {
+        display: var(--LightOn);
+      }
+
+      .light-off {
+        display: var(--LightOff);
+      }
+      
+      /**about container**/
+      #about-container{
+          width:65%;
+          display:flex;
+          margin-left:400px;
+          position:relative;
+          display:flex;
+          margin-top:50px;
+          margin-bottom:50px;
+      }
+      
+      #about-sidebar{
+          width:25%;
+          margin-right:50px;
+      }
+      
+      .about-box{
+          border:1px solid var(--border);
+          width:100%;
+          min-height:150px;
+          margin-bottom:20px;
+        /*delete this line if you want a sharp border*/
+        border-radius: 5px;
+      }
+      
+      .about-box:last-child{
+          margin-bottom:0 !important;
+      }
+      
+      .about-box-header{
+          display:flex;
+          padding:20px;
+          align-items:center;
+          border-bottom:1px solid var(--border);
+          text-transform:uppercase;
+          font-weight:700;
+      }
+      
+      .about-box-header ion-icon{
+          font-size:24px;
+          color:var(--accent);
+          margin-right:20px;
+      }
+      
+      .about-box-text{
+          padding:20px;
+      }
+      
+      .about-box-text-row{
+          display:flex;
+          align-items:center;
+          justify-content:space-between;
+          margin-top:10px;
+          font-size:12px;
+      }
+      
+      .about-box-text-row a{
+          box-shadow:0 -3px inset var(--accent);
+      }
+      
+      .about-box-text-row-label{
+          font-weight:700;
+          text-transform:uppercase;
+      }
+      
+      #about-text{
+          width:80%;
+      }
+      
+      #quote{
+          padding:20px;
+          width:100%;
+          font-family:'PT Serif';
+          font-style:italic;
+          font-size:25px;
+          font-weight:700;
+          position:relative;
+      }
+      
+      #quote:before{
+          content:'';
+          position:absolute;
+          background-color:var(--accent);
+          width:20%;
+          left:20px;
+          padding:2px;
+          bottom:0;
+      }
+      
+      #about-text-body{
+          padding:20px;
+          text-align:justify;
+      }
+      
+      #about-text-body a{
+          font-weight:700;
+          box-shadow:0 -5px inset var(--accent);
+      }
+      
+      #about-text-body i, em{
+          color:var(--accent);
+      }
+      
+      #about-text-body blockquote{
+          border-left:4px solid var(--border);
+          padding-left:20px;
+      }
+      
+      #about-text-body:first-letter{
+          font-family:'PT Serif';
+          font-size:20px;
+          padding:10px;
+          background:var(--accent);
+          float:left;
+          margin-right:5px;
+          text-align:center;
+          width:10px;
+          height:20px;
+          line-height:100%;
+          font-weight:700;
+          color:#fff;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="dark-switch" id="theme-toggle">
+      <ion-icon name="moon-outline" class="light-on" title="dark mode"></ion-icon>
+      <ion-icon name="sunny-outline" class="light-off" title="light mode"></ion-icon>
+    </div>
+    <div id="decorative-sidebar"></div>
+    
+    <div id="sidebar">
+      <div id="sidebar-content">
+        <div id="sidebar-image">
+          <!--change your icon here-->
+          <img src="https://i.imgur.com/jA9b1gh.png" />
+        </div>
+        <div id="title">symphonies</div>
+        <div id="navigation">
+          <div class="navigation-links">
+            <a href="/">home</a>
+            <a href="/ask">ask</a>
+            <a href="/archive">past</a>
+            <a href="">one</a>
+            <a href="">two</a>
+            <a href="">three</a>
+          </div>
+        </div>
+        <div id="desc">
+        now that we've come this far, just hold on
+        <br>
+        there's nothing to fear, for i am right beside you
+        <br>
+        for all my life, i am yours.
+        </div>
+      </div>
+      <!--end sidebar-content-->
+    </div>
+    
+    <div id="about-container">
+        <div id="about-sidebar">
+            <!--Please read this first!
+            To add more boxes, copy from where it says "copy from here" until the part where it says "to here".-->
+            
+            <!--copy from here-->
+            <div class="about-box">
+                <div class="about-box-header">
+                <!--you can change the icons here, specifically where it says "name="...". refer to ionicons for the complete list of icons.-->
+                <ion-icon name="list-circle-outline"></ion-icon>
+                personal information
+                </div>
+                
+                <div class="about-box-text">
+                <!--if you need to add more row, copy the entirety of "about-box-text-row".-->
+                    <!--copy from here-->
+                    <div class="about-box-text-row">
+                        <div class="about-box-text-row-label">name</div>
+                        rizu
+                    </div>
+                    <!--to here-->
+                    
+                    <div class="about-box-text-row">
+                        <div class="about-box-text-row-label">age</div>
+                        20+
+                    </div>
+                    <div class="about-box-text-row">
+                        <div class="about-box-text-row-label">pronouns</div>
+                        she/her/hers
+                    </div>
+                    <div class="about-box-text-row">
+                        <div class="about-box-text-row-label">name</div>
+                        rizu
+                    </div>
+                </div><!--end about-box-text-->
+            </div><!--end about-box-->
+            <!--to here-->
+            
+            <div class="about-box">
+                <div class="about-box-header">
+                    <ion-icon name="calendar-outline"></ion-icon>
+                    updates
+                </div>
+                
+                <div class="about-box-text">
+                    <div class="about-box-text-row">
+                        <div class="about-box-text-row-label">30/3/2022</div>
+                        start working
+                    </div>
+                    <div class="about-box-text-row">
+                        <div class="about-box-text-row-label">1/4/2022</div>
+                        happy april mop!
+                    </div>
+                    <div class="about-box-text-row">
+                        <div class="about-box-text-row-label">19/8/2022</div>
+                        happy birthday d!
+                    </div>
+                </div>
+            </div>
+            
+            <div class="about-box">
+                <div class="about-box-header">
+                    <ion-icon name="pin-outline"></ion-icon>
+                    on the internet
+                </div>
+                
+                <div class="about-box-text">
+                    <div class="about-box-text-row">
+                        <div class="about-box-text-row-label">twitter</div>
+                        <a href="">@pneuma-themes</a>
+                    </div>
+                    <div class="about-box-text-row">
+                        <div class="about-box-text-row-label">spotify</div>
+                        <a href="">pneumathemes</a>
+                    </div>
+                    <div class="about-box-text-row">
+                        <div class="about-box-text-row-label">instagram</div>
+                        <a href="">@pneuma-themes</a>
+                    </div>
+                    <div class="about-box-text-row">
+                        <div class="about-box-text-row-label">tumblr</div>
+                        <a href="">@pneuma-themes</a>
+                    </div>
+                </div>
+            </div>
+        </div><!--end about sidebar-->
+        
+        <div id="about-text">
+            <div id="quote">and i will still be here, stargazing.</div><!--change your quote here!-->
+            
+            <div id="about-text-body">
+            <!--write your about here! you can write as much as you want.-->
+            <p>Hello and welcome! This is the preview of <b>Kardia</b>, a simple about page I release under <a href="//pneuma-themes.tumblr.com">@pneuma-themes</a> and coincidentally, my first release! Yay!</p>
+            
+            <p>This is a very simple about page that has boxes where you can put literally anything. I put a <i>personal information, updates</i> and a <i>custom link</i> box where I put custom links. You can, of course, customize it to your liking. I have put notes inside the code to edit, so please make sure you have thoroughly read the code! I hope my notes are understandable but if not, do feel free to send me an ask.</p>
+            
+            <blockquote><b>Kardia (κᾰρδῐ́ᾱ, (kardíā))</b>
+            is an Ancient Greek term referring to heart as the source of feeling and emotions, and used in modern age as a term referring to the medical term of heart.
+            </blockquote>
+            
+            <p>Features included in this page are as the following:
+                <ul>
+                    <li>The ability to add as many boxes as you want.</li>
+                    <li>The ability to write your about as long or as short as you want.</li>
+                    <li>A quote above the about text.</li>
+                    <li>Customizable icons, please refer to the notes I included in the code on how to change it!</li>
+                    <li>Sidebar includes a custom icon, a title and a description where you can write as long or as short as you want.</li>
+                    <li>Customizable colors for light and dark mode.</li>
+                </ul>
+                As this is a <b>page</b> theme, posts on your blog will <i>not</i> be displayed.
+            </p>
+            
+            <p>I think that about covers it. Thank you so much if you choose to use this page, and I hope you enjoy it! If you have any questions, do leave me an ask, and if you like this page, please like and reblog the theme post!</p>
+            </div>
+        </div>
+        
+    </div><!--end about container-->
+
+    <div id="credit">
+      <a href="//pneuma-themes.tumblr.com" title="kardia by pneumathemes">code</a>
+    </div>
+
+    <script>
+      const toggle = document.getElementById("theme-toggle");
+      toggle.onclick = function () {
+        document.documentElement.classList.add("theme-transition");
+        let currentTheme = document.documentElement.getAttribute("data-theme");
+        let targetTheme = "light";
+        if (currentTheme === "light") {
+          targetTheme = "dark";
+        }
+
+        window.setTimeout(function () {
+          document.documentElement.classList.remove("theme-transition");
+        }, 50);
+        document.documentElement.setAttribute("data-theme", targetTheme);
+        localStorage.setItem("theme", targetTheme);
+      };
+    </script>
+  </body>
+  <script>
+    $(document).ready(function () {
+      tippy("[title]", {
+        // change these to your liking
+        arrow: false,
+        placement: "left", // top, right, bottom, left
+        delay: 5, //ms
+        offset: [0,20], //px or string
+        maxWidth: 300, //px or string
+
+        // leave these as they are
+        followCursor: false,
+        allowHTML: true,
+        theme: "custom",
+        ignoreAttributes: true,
+        content(reference) {
+          const title = reference.getAttribute("title");
+          reference.removeAttribute("title");
+          return title;
+        },
+      });
+    });
+  </script>
+</html>
