@@ -69,6 +69,22 @@
       rel="stylesheet"
       href="https://static.tumblr.com/r7bx1qs/K0hrbahjd/note-reblog.css"
     />
+    <script>
+      // minimal soundcloud player © shythemes.tumblr
+      $(document).ready(function () {
+        var color = "#acd7bb"; // color of play button (hex)
+        $(".soundcloud_audio_player, .spotify_audio_player").each(function () {
+          $(this).attr({
+            src:
+              $(this).attr("src").split("&")[0] +
+              "&liking=false&sharing=false&auto_play=false&show_comments=false&continuous_play=false&buying=false&show_playcount=false&show_artwork=true&origin=tumblr&color=" +
+              color.split("#")[1],
+            height: 116,
+            width: "100%",
+          });
+        });
+      });
+    </script>
 
     <meta name="image:sidebar" content="" />
 
