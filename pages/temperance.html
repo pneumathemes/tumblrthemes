@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+	<!--change the title of the page here! this will appear as the title at your current tab.-->
+	<title>temperance</title>
+
+	<link rel="shortcut icon" href="{Favicon}" />
+	<link rel="alternate" type="application/rss+xml" href="{RSS}" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<!--
+ 
+    Page #03: Temperance
+    coded by pneuma-themes
+    
+    1. Don't remove the credit.
+    2. Don't move the credit. Just leave it there.
+    3. Don't use as a base code.
+    4. Please enjoy! If you find any bugs, please contact me! c:
+    
+  -->
+
+	<link rel="preconnect" href="https://fonts.bunny.net" />
+	<link
+		href="https://fonts.bunny.net/css?family=rubik:400,400i,700,700i"
+		rel="stylesheet"
+	/>
+	<link
+		href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+		rel="stylesheet"
+	/>
+	<link rel="stylesheet" href="https://unpkg.com/balloon-css/balloon.min.css" />
+
+	<head>
+		<style type="text/css">
+			iframe.tmblr-iframe {
+				display: none;
+			}
+
+			#tumblr-controls {
+				position: fixed;
+			}
+
+			:root {
+				--Accent: #f4caca;
+				--Body: #191919;
+				--FontSize: 13px;
+				--Background: #fbfbfb;
+				--ContainerBackground: #fff;
+				--Border: #eee;
+			}
+
+			body {
+				margin: 0;
+				padding: 0;
+				background: var(--Background);
+				font-family: 'Rubik';
+				font-size: var(--FontSize);
+				color: var(--Color);
+			}
+
+			a {
+				text-decoration: none;
+				color: var(--Color);
+			}
+
+			#main-container {
+				width: 80%;
+				height: 700px;
+				margin: 0 auto !important;
+				top: 60px;
+				position: relative;
+				border: 1px solid var(--Border);
+				display: flex;
+				background: var(--ContainerBackground);
+			}
+
+			#sidebar {
+				height: 100%;
+				width: 30%;
+				border-right: 1px solid var(--Border);
+				display: flex;
+				justify-content: center;
+				background: var(--ContainerBackground);
+			}
+
+			#sidebar-content {
+				width: 100%;
+			}
+
+			#sidebar-image {
+				width: 100%;
+				height: 300px;
+			}
+
+			#sidebar-image img {
+				width: 100%;
+				height: 300px;
+				max-width: 100%;
+				max-height: 300px;
+			}
+
+			#desc {
+				padding: 20px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				text-align: justify;
+				border-bottom: 1px solid var(--Border);
+			}
+
+			#desc a {
+				box-shadow: 0 -2px inset var(--Accent);
+			}
+
+			#desc i {
+				color: var(--Accent);
+				font-size: 20px;
+				margin-right: 20px;
+			}
+
+			#navlinks {
+				display: flex;
+				align-items: center;
+				margin-top: 20px;
+				border-bottom: 1px solid var(--Border);
+				padding-bottom: 20px;
+				justify-content: center;
+			}
+
+			.navlinks {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				border-right: 1px solid var(--Border);
+				padding-right: 8px;
+				padding-left: 8px;
+			}
+
+			.navlinks:last-of-type {
+				border-right: none !important;
+			}
+
+			.navlinks i,
+			.other-links i {
+				margin-right: 10px;
+				font-size: 16px;
+			}
+
+			.navlinks a,
+			.other-links a,
+			.custom-links a {
+				font-weight: 700;
+				text-transform: uppercase;
+				box-shadow: 0 -10px inset var(--Accent);
+			}
+
+			#other-links,
+			#custom-links {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-wrap: wrap;
+				margin-top: 20px;
+				border-bottom: 1px solid var(--Border);
+				padding-bottom: 20px;
+			}
+
+			#custom-links {
+				border-bottom: none !important;
+			}
+
+			.custom-links {
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				justify-content: center;
+			}
+
+			.other-links {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				padding: 8px;
+				margin-bottom: 2px;
+			}
+
+			.custom-links a {
+				margin-right: 8px;
+				margin-bottom: 8px;
+				min-width: 50px;
+			}
+
+			#about {
+				width: 70%;
+				background: var(--ContainerBackground);
+				height: 100%;
+			}
+
+			#about-info {
+				width: 100%;
+				border-bottom: 1px solid var(--Border);
+			}
+
+			#about-info-text {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				padding: 20px;
+				flex-wrap: wrap;
+				padding-bottom: 0 !important;
+			}
+
+			.about-info-rows {
+				display: flex;
+				align-items: center;
+				width: 49%;
+				justify-content: space-between;
+				background: #fff;
+				border-right: 1px solid var(--Border);
+				margin-bottom: 20px;
+			}
+
+			.about-info-rows:nth-of-type(odd) {
+				padding-right: 20px;
+				width: 45%;
+			}
+
+			.about-info-rows:nth-of-type(even) {
+				border-right: none !important;
+			}
+
+			.about-info-label {
+				background: var(--Accent);
+				text-transform: uppercase;
+				padding: 6px;
+				font-weight: 700;
+				border-radius: 2px;
+			}
+
+			#about-text {
+				padding: 20px;
+				overflow-y: scroll;
+				overflow-x: hidden;
+				max-height: calc(100% - 180px);
+			}
+
+			#about-text::-webkit-scrollbar {
+				width: 2px;
+			}
+
+			#about-text::-webkit-scrollbar-thumb:vertical {
+				background: var(--Accent);
+			}
+
+			#about-text a {
+				box-shadow: 0 -2px inset var(--Accent);
+			}
+
+			#about-text blockquote {
+				border-left: 1px solid var(--Border);
+				padding-left: 20px;
+			}
+
+			#about-text li {
+				margin-bottom: 5px;
+			}
+
+			#about-text li:last-of-type {
+				margin-bottom: 0;
+			}
+
+			#credit {
+				position: fixed;
+				bottom: 20px;
+				right: 20px;
+				background: #fff;
+				border: 1px solid var(--Border);
+				border-radius: 2px;
+				line-height: 100%;
+			}
+
+			#credit i {
+				font-size: 20px;
+				padding: 8px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="main-container">
+			<div id="sidebar">
+				<div id="sidebar-content">
+					<div id="sidebar-image">
+						<!--change your sidebar image here!-->
+						<img
+							src="https://static.tumblr.com/r7bx1qs/8WUs03e0h/tumblr_471547ce284bbed073e3b3c6ef51b3fd_13e28e65_20481.png"
+						/>
+					</div>
+					<div id="navlinks">
+						<div class="navlinks">
+							<i class="bx bx-home-alt"></i><a href="/">home</a>
+						</div>
+						<div class="navlinks">
+							<i class="bx bx-envelope-open"></i><a href="/ask">ask</a>
+						</div>
+
+						<div class="navlinks">
+							<i class="bx bx-archive"></i><a href="/archive">archive</a>
+						</div>
+					</div>
+					<div id="desc">
+						<i class="bx bxs-quote-alt-left"></i>
+						<div id="desc-text">
+							<!--this is the description box-->
+							the hunger and the longing, the wonder and the will.
+							<br />
+							your world is enchanted when your mind is still.
+							<br />
+							<br />
+							sidebar image:
+							<b
+								><a href="https://xathrid.tumblr.com/post/718199740607627264"
+									>@xathrid</a
+								></b
+							>
+						</div>
+					</div>
+					<!--end desc-->
+
+					<div id="other-links">
+						<!--to add more links, copy from here-->
+						<div class="other-links">
+							<!--to change the icon, change the name of icon *after* the dash. in this example: twitter-->
+							<i class="bx bxl-twitter"></i>
+							<a href="/">twitter</a>
+						</div>
+						<!--to here-->
+
+						<div class="other-links">
+							<i class="bx bxl-spotify"></i><a href="/">spotify</a>
+						</div>
+						<div class="other-links">
+							<i class="bx bxl-twitch"></i><a href="/">twitch</a>
+						</div>
+						<div class="other-links">
+							<i class="bx bxl-instagram"></i><a href="/">instagram</a>
+						</div>
+						<div class="other-links">
+							<i class="bx bxl-discord-alt"></i><a href="/">discord</a>
+						</div>
+						<div class="other-links">
+							<i class="bx bxl-pinterest"></i><a href="/">pinterest</a>
+						</div>
+						<!--before this line-->
+					</div>
+					<!--end other links-->
+
+					<!--this is the custom links. you can add as much or not add anything. if you want to delete this section altogether, then just comment the entire section from here-->
+					<div id="custom-links">
+						<div class="custom-links">
+							<a href="">link one</a>
+							<a href="">link two</a>
+							<a href="">link three</a>
+							<a href="">link four</a>
+							<a href="">link five</a>
+							<a href="">link six</a>
+						</div>
+					</div>
+					<!--end custom-links-->
+					<!--to here-->
+				</div>
+			</div>
+			<!--end sidebar-->
+
+			<div id="about">
+				<div id="about-info">
+					<div id="about-info-text">
+						<div class="about-info-rows">
+							<div class="about-info-label">
+								name
+								<!--change the label here-->
+							</div>
+							rizu
+						</div>
+						<div class="about-info-rows">
+							<div class="about-info-label">timezone</div>
+							gmt +7
+						</div>
+						<div class="about-info-rows">
+							<div class="about-info-label">pronouns</div>
+							she/her/hers
+						</div>
+						<div class="about-info-rows">
+							<div class="about-info-label">age</div>
+							20+
+						</div>
+					</div>
+				</div>
+				<!--end about info header-->
+				<div id="about-text">
+					<!--this is the about body! you can write whatever you want here.-->
+				</div>
+			</div>
+		</div>
+
+		<!--please don't touch this!-->
+		<div id="credit">
+			<a
+				href="//pneuma-themes.tumblr.com"
+				data-balloon-pos="left"
+				aria-label="temperance by pneuma-themes"
+				><i class="bx bx-code"></i
+			></a>
+		</div>
+	</body>
+</html>
