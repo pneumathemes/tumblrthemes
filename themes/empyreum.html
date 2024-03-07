@@ -137,9 +137,26 @@
             background:var(--Poll-Option-Background-Color);
         }
         </style> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script>
+      // minimal soundcloud player © shythemes.tumblr
+      $(document).ready(function () {
+        var color = "#acd7bb"; // color of play button (hex)
+        $(".soundcloud_audio_player").each(function () {
+          $(this).attr({
+            src:
+              $(this).attr("src").split("&")[0] +
+              "&amp;liking=false&amp;sharing=false&amp;auto_play=false&amp;show_comments=false&amp;continuous_play=false&amp;buying=false&amp;show_playcount=false&amp;show_artwork=true&amp;origin=tumblr&amp;color=" +
+              color.split("#")[1],
+            height: 20,
+            width: "100%",
+          });
+        });
+      });
+    </script>
 
         <style type="text/css">
-            @import url(https://fonts.bunny.net/css?family=public-sans:400,400i,700,800i);
+            @import url('https://fonts.bunny.net/css?family=public-sans:400,400i,700,800i');
             
             iframe.tmblr-iframe {
             z-index:99999999999999!important;
@@ -164,6 +181,9 @@
             -ms-transform:scale(0.75);
             -ms-transform-origin:100% 0;
         }
+        
+            iframe[src*='open.spotify.com'][src*='track'], figure[data-npf*='open.spotify.com'][data-npf*='track']{     height:80px!important; }
+
             
             body{
                 margin:0;
@@ -726,6 +746,20 @@
 			        margin-right:2px;
 			        margin-bottom:2px;
 			    }
+			    
+			    .scrollup{
+                  position:fixed;
+                  bottom:20px;
+                  right:10px;
+                  text-align:center;
+              }
+
+              .scrollup i{
+                  background:{color:accent};
+                  border-radius:2px;
+                  padding:10px;
+                  color:{color:body};
+              }
         </style>
 
     </head>
@@ -988,7 +1022,11 @@
         
     </footer>
     </div><!--end post container-->
-
+ <div class="scrollup">
+      <a href="#" title="scroll to top">
+        <i class="ai-arrow-up"></i>
+      </a>
+    </div>
     </div><!--end container-->
 </body>
 
@@ -1110,6 +1148,21 @@ for (const post of posts) {
       		    }
 
       		$(document).ready(function(){
+      		    		      
+		      $(".scrollup").hide();
+                  $(window).scroll(function () {
+                    if ($(this).scrollTop() > 100) {
+                      $(".scrollup").fadeIn();
+                    } else {
+                      $(".scrollup").fadeOut();
+                    }
+            });
+            
+            $(".scrollup").click(function () {
+                $("html, body").animate({ scrollTop: 0 }, 700);
+                return false;
+              });
+              
 		      function flexFrame() {
 		        $(".caption").each(function () {
 		          $(this).find("iframe").wrap("<div class='capframe'></div>"); // wrap iframe
@@ -1158,6 +1211,7 @@ for (const post of posts) {
     		        hideInfoIfError: true,
     		        callAfterLoad:null,
 		      });
+
 		   });
 
 </script>
