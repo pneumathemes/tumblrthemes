@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html>
+     <!--change the title of the page here! this will appear as the title at your current tab.-->
+      <title>the rite of spring</title>
+    
+      <link rel="shortcut icon" href="{Favicon}" />
+      <link rel="alternate" type="application/rss+xml" href="{RSS}" />
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+      <!--
+     
+        Page #04: Primavera
+        coded by pneuma-themes
+        
+        1. Don't remove the credit.
+        2. Don't move the credit. Just leave it there.
+        3. Don't use as a base code.
+        4. Please enjoy! If you find any bugs, please contact me! c:
+        
+        
+        This page has been heavily annotated to help you edit the page, so please look through the source code first before asking me for help!
+      -->
+    
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+      <script src="https://unpkg.com/@popperjs/core@2"></script>
+      <script src="https://unpkg.com/tippy.js@6"></script>
+      
+      <link href="https://dencar-icons.gitlab.io/i/icons.css" rel="stylesheet">
+       <script>
+      const storedTheme =
+        localStorage.getItem("theme") ||
+        (window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light");
+      if (storedTheme)
+        document.documentElement.setAttribute("data-theme", storedTheme);
+    </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <head>
+        <style type="text/css">
+            @import url("https://fonts.bunny.net/css?family=albert-sans:400,400i,700,700i|merriweather:400,400i,700,700i");
+            /*attention! to change the colors of the page, look below!*/
+      /*make changes here to change the colors on light mode. please leave LightOn and LightOff variables be!*/
+      :root,
+      html[data-theme="light"] {
+        --LightOn: flex;
+        --LightOff: none;
+        --accent: #b1c491;
+        --body: #1f1f1f;
+        --background: #fff;
+        --border: #eee;
+        --fontSize:13px;
+      }
+      
+      /*make changes here to change the colors on dark mode. please leave LightOn and LightOff variables be!*/
+      html[data-theme="dark"] {
+        --LightOn: none;
+        --LightOff: flex;
+        --body: #d3d4d4;
+        --border: #d3d4d4;
+        --background: #090909;
+      }
+
+      html.theme-transition,
+      html.theme-transition *,
+      html.theme-transition *:before,
+      html.theme-transition *:after {
+        transition: 0s !important;
+        transition-delay: 0 !important;
+      }
+      
+      iframe.tmblr-iframe {
+          display: none;
+      }
+      
+      #tumblr-controls {
+          position: fixed;
+      }
+      
+      body{
+          margin:0;
+          padding:0;
+          font-family:'Albert Sans';
+          font-size:var(--fontSize);
+          color:var(--body);
+          background:var(--background);
+      }
+      
+      a{
+          text-decoration:none;
+          color:var(--body);
+      }
+      
+      .dark-switch {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        width: 20px;
+        padding:8px;
+        height: 20px;
+        font-size: 30px;
+        text-align: center;
+        color: var(--body);
+      }
+
+      .light-on {
+        display: var(--LightOn);
+      }
+
+      .light-off {
+        display: var(--LightOff);
+      }
+      
+      .tippy-box{
+          font-family:'Albert Sans';
+          font-size:calc(var(--fontSize) - 2px);
+          background:var(--background);
+          color:var(--body);
+          box-shadow:-2px -2px inset var(--accent);
+      }
+      
+      /*sidebars*/
+      .sidebar{
+          width:20%;
+          height:100%;
+          position:fixed;
+          top:0;
+          display:flex;
+          flex-wrap:wrap;
+          align-items:center;
+          background:var(--background);
+          justify-content:flex-start;
+      }
+      
+      .left{
+          left:0;
+          border-right:1px solid var(--border);
+      }
+      
+      .right{
+          right:0;
+          border-left:1px solid var(--border);
+      }
+      
+      .sidebar-content{
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          width:100%;
+          flex-wrap:wrap;
+      }
+      
+      .navigation-links{
+          width:70%;
+          margin-bottom:20px;
+          display:flex;
+          align-items:center;
+          justify-content:space-between;
+      }
+      
+      .navigation-links .dencar-icons{
+          font-size:30px;
+      }
+      
+      .navigation-links a{
+          font-weight:700;
+          text-transform:capitalize;
+          font-size:calc(var(--fontSize) + 3px);
+      }
+      
+      /*main container*/
+      #main-container{
+          width:60%;
+          margin:0 auto;
+          position:relative;
+          display:flex;
+          align-items:center;
+          flex-wrap:wrap;
+          justify-content:center;
+          background:var(--background);
+      }
+      
+      header{
+          width:100%;
+          height:250px;
+      }
+      
+      header img{
+          width:100%;
+          height:100%;
+          object-fit:cover;
+      }
+      
+      /**icon and description**/
+      #description{
+          width:100%;
+          display:flex;
+          align-items:center;
+          flex-wrap:wrap;
+          border-bottom:1px solid var(--border);
+      }
+      
+      #description-icon{
+          width:64px;
+          margin-top:-20px;
+          height:64px;
+          border-radius:100%;
+          padding:8px;
+          background:var(--background);
+          margin-left:20px;
+          margin-right:20px;
+      }
+      
+      #description-icon img{
+          width:64px;
+          height:64px;
+          max-width:64px;
+          max-height:64px;
+          border-radius:100%;
+      }
+      
+      #title{
+          font-family:'Merriweather';
+          font-weight:700;
+          font-style:italic;
+          text-transform:lowercase;
+          box-shadow:0 -5px inset var(--accent);
+          margin-bottom:20px;
+          font-size:calc(var(--fontSize) + 5px);
+      }
+      
+      #description-box{
+          text-align:justify;
+          width:75%;
+          display:flex;
+          padding-top:20px;
+          flex-wrap:wrap;
+          align-items:center;
+      }
+      
+      #description-text{
+          padding-right:20px;
+          padding-bottom:20px;
+      }
+      
+      #description-text a{
+          color:var(--accent);
+      }
+      
+      #description-info{
+          display:flex;
+          align-items:center;
+          margin-top:20px;
+      }
+      
+      .description-label{
+          display:flex;
+          align-items:center;
+          justify-content:flex-start;
+          margin-right:20px;
+          color:#c3c3c3;
+      }
+      
+      .description-label .dencar-icons{
+          font-size:18px;
+          color:var(--accent);
+          margin-right:5px;
+      }
+      
+      /**tabs styling**/
+      .tabs{
+          display:flex;
+          width:100%;
+          position:sticky;
+          top:0;
+          z-index:99;
+          align-items:center;
+          justify-content:center;
+          border-bottom:1px solid var(--border) !important;
+          background:var(--background);
+      }
+      
+      .tabs a{
+          border-bottom:none !important;
+      }
+      
+      .tabs ul li a{
+          font-size:calc(var(--fontSize) + 2px) !important;
+      }
+      
+      .tabs ul li a:hover{
+          color:var(--accent) !important;
+          border-bottom:3px solid var(--accent) !important;
+      }
+      
+      .tabs ul li.is-active a{
+          color:var(--accent) !important;
+          font-weight:700;
+          border-bottom:3px solid var(--accent) !important;
+      }
+      
+      .tab-content{
+          display:none;
+          background:var(--background) !important;
+          width:100%;
+      }
+      
+      /**tab content styling**/
+      .tab-content.is-active{
+          display:flex;
+          flex-wrap:wrap;
+          align-items:flex-start;
+          justify-content:center;
+      }
+      
+      /**about**/
+      /**general styling for content block**/
+      
+      #about, #blogroll, #tags, #faq{
+          width:90%;
+      }
+      
+      #about-content, #blogroll-content, #tags-content, #faq-content{
+          padding:20px;
+          width:100%;
+      }
+      
+      #about-icon{
+          width:64px;
+          height:64px;
+          background:var(--background);
+          border-radius:100%;
+          border:3px solid var(--accent);
+          padding:5px;
+      }
+      
+      #about-text{
+          border-left:3px solid var(--accent);
+          padding-left:20px;
+          padding-top:20px;
+          margin-left:30px;
+          margin-top:-20px;
+      }
+      
+      #about-quote{
+          font-family:'Merriweather';
+          font-size:calc(var(--fontSize) + 3px);
+          font-weight:700;
+          font-style:italic;
+          text-transform:lowercase;
+          margin-left:10px;
+      }
+      
+      #about-info-panel{
+          display:flex;
+          width:90%;
+          align-items:center;
+          margin-left:15px;
+          justify-content:space-between;
+      }
+      
+      .about-box{
+          width:45%;
+      }
+      
+      .about-box-row{
+          display:flex;
+          align-items:center;
+          justify-content:space-between;
+          border-bottom:1px solid var(--border);
+          width:100%;
+          margin-bottom:10px;
+          padding-bottom:10px;
+      }
+      
+      .about-box-row:last-of-item{
+          margin-bottom:0 !important;
+      }
+      
+      .about-box-row .dencar-icons{
+          color:var(--accent);
+          font-size:calc(var(--fontSize) + 3px);
+      }
+      
+      #about-text-area{
+          margin-top:20px;
+      }
+      
+      #about-text-area p{
+          margin:10px;
+      }
+      
+      #about-text-area a{
+          color:var(--accent);
+      }
+      
+      #about-text-area blockquote{
+          padding-left:10px;
+          border-left:2px solid var(--accent);
+          margin:20px !important;
+      }
+      
+      #about-text-area ul{
+          list-style:disc !important;
+          margin-left:20px !important;
+          padding:10px !important;
+      }
+      
+      /**blogroll**/
+      #blogroll-content{
+          display:flex;
+          align-items:center;
+          justify-content:space-between;
+          flex-wrap:wrap;
+      }
+      
+      .blogroll-row{
+          display:flex;
+          align-items:center;
+          justify-content:space-between;
+          width:45%;
+          margin-bottom:20px;
+          border-radius:5px;
+          box-shadow: -5px -5px inset var(--accent);
+          padding:15px;
+          background:var(--background);
+      }
+      
+      .blogroll-img{
+          width:48px;
+          height:48px;
+          border-radius:100%;
+          border:2px solid var(--accent);
+          padding:5px;
+          background:var(--background);
+          margin-right:20px;
+      }
+      
+      .blogroll-info{
+          display:flex;
+          align-items:center;
+          justify-content:flex-end;
+          flex-wrap:wrap;
+          width:80%;
+      }
+      
+      .blogroll-info span.blog-title{
+          font-family:'Merriweather';
+          font-weight:700;
+          width:100%;
+          text-align:right;
+          text-transform:uppercase;
+      }
+      
+      .blogroll-name{
+          font-size:calc(var(--fontSize) - 2px);
+          text-transform:lowercase;
+          font-style:italic;
+      }
+      
+      
+      /**tags**/
+      .tags-grid{
+          display:flex;
+          align-items:center;
+          flex-wrap:wrap;
+          align-content:center;
+          width:100%;
+          justify-content:space-evenly;
+          border:1px solid var(--border);
+          border-radius:5px;
+          margin-bottom:50px;
+      }
+      
+      .tags-header{
+          font-family:'Merriweather';
+          display:flex;
+          padding:15px;
+          width:100%;
+          text-align:center;
+          justify-content:center;
+          font-size:calc(var(--fontSize) + 3px);
+          text-transform:lowercase;
+          border-bottom:1px solid var(--border);
+          font-style:italic;
+          font-weight:700;
+          align-items:center;
+      }
+      
+      .tags-box{
+          padding:15px;
+          display:flex;
+          flex-wrap:wrap;
+          width:45%;
+          justify-content:space-around;
+      }
+      
+      .tags-box a{
+          background:var(--accent);
+          color:#1f1f1f;
+          min-width:45%;
+          padding:4px;
+          font-size:calc(var(--fontSize) - 2px);
+          display:flex;
+          align-items:center;
+          margin-top:5px;
+          justify-content:space-around;
+          flex-wrap:wrap;
+          text-align:center;
+          margin-bottom:5px;
+      }
+      
+      /**faq**/
+      .faq-box{
+          display:flex;
+          width:100%;
+          flex-wrap:wrap;
+          align-items:center;
+          justify-content:center;
+          margin-bottom:50px;
+      }
+      
+      .ask, .answer{
+          width:100%;
+          padding:10px;
+          display:flex;
+          justify-content:space-between;
+      }
+      
+      .ask-icon{
+          position:relative;
+      }
+      
+      .ask-icon img, .answer-icon img{
+          width:64px;
+          height:64px;
+          border-radius:100%;
+          padding:5px;
+          border:2px solid var(--accent);
+          background:var(--background);
+      }
+      
+      .ask-icon .dencar-icons{
+          position:absolute;
+          bottom:0;
+          right:1px;
+          background:var(--background);
+          padding:3px;
+          font-size:calc(var(--fontSize) + 2px);
+          border-radius:100%;
+      }
+      
+      .ask-text, .answer-text{
+          width:calc(100% - 64px);
+          margin-left:10px;
+          border-radius:5px;
+          background:var(--accent);
+          color:#fff;
+          padding:15px;
+      }
+      
+      
+      .trig{
+          font-size:calc(var(--fontSize) + 10px);
+          color:var(--accent);
+          margin-left:-5px;
+      }
+        </style>
+    </head>
+    
+    <body>
+        <div class="left sidebar">
+            <!--left sidebar-->
+             <div class="dark-switch" id="theme-toggle">
+                  <i class="dencar-icons light-on" stroke="1.5" icon-name="moon" title="dark mode"></i>
+                  <i class="dencar-icons light-off" stroke="1.5" icon-name="sun-2" title="light mode"></i>
+            </div>
+            
+            <div class="sidebar-content">
+                <div class="navigation-links">
+                    <i class="dencar-icons" stroke="1.5" icon-name="home"></i>
+                    <a href="/">home</a>
+                </div><!--end nav links-->
+                <div class="navigation-links">
+                    <i class="dencar-icons" stroke="1.5" icon-name="archive"></i>
+                    <a href="/archive">archive</a>
+                </div><!--end nav links-->
+                <div class="navigation-links">
+                    <i class="dencar-icons" stroke="1.5" icon-name="heart"></i>
+                    <a href="//tumblr.com/likes">likes</a>
+                </div><!--end nav links-->
+                <div class="navigation-links">
+                    <i class="dencar-icons" stroke="1.5" icon-name="users-group"></i>
+                    <a href="//tumblr.com/following">following</a>
+                </div><!--end nav links-->
+                <div class="navigation-links">
+                    <i class="dencar-icons" stroke="1.5" icon-name="pen-tool"></i>
+                    <a href="//pneuma-themes.tumblr.com" title="primavera by pneuma-themes">credit</a>
+                </div><!--end nav links-->
+            </div><!--end sidebar-content-->
+        </div><!--end left sidebar-->
+        
+        
+        <div id="main-container">
+            <header>
+                <img src="https://static.tumblr.com/r7bx1qs/Mjqsqqtxj/tumblr_80e3617bbd2f9224ea5a60142f48efa3_991dcdbb_1280.png"/>
+            </header>
+            
+            <div id="description">
+                <div id="description-icon">
+                <!--change your icon here! icon by @alydae-->
+                    <img src="https://i.imgur.com/FQCEiTn.png"/>
+                </div>
+                
+                
+                <div id="description-box">
+                <div id="title">
+                    the rite of spring
+                </div>
+                
+                <div id="description-text">
+                <!--change your description here-->
+                always it’s spring, and everyone’s in love, and flowers pick themselves. --<i>e.e. cummings</i>
+    <br>
+    icon by <a href="//alydae.tumblr.com">@alydae</a> // header image by <a href="//tofuvi.tumblr.com">@tofuvi</a>
+    
+    <div id="description-info">
+        <div class="description-label">
+            <i class="dencar-icons" stroke="1.5" icon-name="location-target"></i> my location
+        </div>
+        <div class="description-label">
+            <i class="dencar-icons" stroke="1.5" icon-name="calendar"></i>est. 2025
+        </div>
+    </div>
+</div>
+
+                </div><!--end description box-->
+            </div>
+            <!--tabs area-->
+            <div class="tabs is-centered is-fullwidth">
+              <ul>
+                <li class="is-active" data-tab="about"><a>About</a></li>
+                <li data-tab="blogroll"><a>Blogroll</a></li>
+                <li data-tab="tags"><a>Tags</a></li>
+                <li data-tab="faq"><a>F.A.Q</a></li>
+              </ul>
+            </div>
+            <!--end tabs-->
+            
+            <div id="about" class="tab-content is-active" data-content="about">
+            <div id="about-content">
+                <div style="display:flex;align-items:center;justify-content:flex-start;background:var(--background)">
+            <!--change your icon image here!-->
+                    <img id="about-icon" src="http://i.imgur.com/oGvzLZu.png"/> 
+                    <div style="width:85%;background:var(--accent);padding:2px"></div>
+                    <div id="about-quote">primavera.</div>
+                </div>
+                <div id="about-text">
+                    <div id="about-info-panel">
+                        <div class="about-box">
+                        
+                        <!--to add or remove rows, copy/delete from here-->
+                            <div class="about-box-row">
+                                <i class="dencar-icons" stroke="1.5" icon-name="user-circle"></i> rizu </div>
+                        <!--to here-->
+                        
+                                <div class="about-box-row">
+                                <i class="dencar-icons" stroke="1.5" icon-name="colors-three"></i>she/her/hers</div>
+                                <div class="about-box-row">
+                                <i class="dencar-icons" stroke="1.5" icon-name="gift"></i>25+</div>
+                        
+                        <!--if adding rows, copy and paste the row before this line. if deleting rows, make sure to keep this line-->    
+                        </div>
+                        <!--end about-box-->
+                        
+                        <div class="about-box">
+                            <div class="about-box-row">
+                                <i class="dencar-icons" stroke="1.5" icon-name="pc-monitor"></i>ffxiv, metaphor re:fantazio, gbf</div>
+                                <div class="about-box-row">
+                                <i class="dencar-icons" stroke="1.5" icon-name="music-note-2"></i>lewis capaldi - strangers </div>
+                                <div class="about-box-row">
+                                <i class="dencar-icons" stroke="1.5" icon-name="book-open"></i>trying to write a novel</div>
+                    
+                    
+                    <!--if adding rows, copy and paste the row before this line-->    
+                        </div><!--end about-box-->
+                    </div><!--end info panel-->
+                    
+                    <div id="about-text-area">
+                        <!--this is your text area! you can be as long or as short as you like.-->
+                        <p>Welcome to the live preview of <a href="//pneuma-themes.tumblr.com">@pneuma-themes's</a> <i>first</i> all-in-one page, <b>Primavera</b>! As can be seen, this is yet another one of so many inspired Twitter (now X) layouts scattered around this website.</p>
+                        <blockquote><b>Primavera:</b> Also known as <i>la primavera</i>, meaning spring in many Romance languages. The title of many pieces of arts, including the title of Vivaldi's first concerto in The Four Seasons and the famous painting by Sandro Boticelli.</blockquote>
+                        <p>This is an all in one page containing the following sections: about, blogroll, tags, and FAQ. The first active tab will always be the <b>about</b> section, and provided that you know enough about HTML then you can change the first active tab to something else.</p>
+                        <p>Features included in this page:
+                            <ul>
+                                <li>The ability to write as much or as slight as you want on the about page.</li>
+                                <li>Fully customizable colors and icon fonts. Refer to the page post to see how to change the icons.</li>
+                                <li>The ability to add as many questions and answers as you want on the FAQ page.</li>
+                                <li>The ability to add as many tags and tags collections on the tags page.</li>
+                                <li>A light-off and light-on color scheme.</li>
+                            </ul>
+                        </p>
+                        <p> As this is a <b>page</b> theme, your blog posts will <i>not</i> be displayed.</p>
+                        <p>The tabs are created by <a href="//bulma.io/documentation/components/tabs/">Bulma.css</a>, while the functionality is adapted from <a href="https://stackoverflow.com/questions/47591474/how-to-switch-through-tabs-in-bulma">this StackOverflow post.</a> Be warned that you will have to have the <b>JavaScript permission enabled</b> for your blog to use this page.</p>
+                        <p>Thank you for looking around and choosing to use this page! Please read through the code to find annotations inside to edit things, and if you encounter any difficulties or problems while using this page, please contact me!</p>
+                    </div>
+                    
+                </div>
+            </div>
+                
+            </div>
+            <!--end about-->
+            
+            <!--start blogroll-->
+            <div id="blogroll" class="tab-content" data-content="blogroll">
+                <div id="blogroll-content">
+                    {block:Following}
+        	        {block:Followed}
+        	        <div class="blogroll-row">
+        	            <img src="{FollowedPortraitURL-128}" class="blogroll-img">
+        	            <div class="blogroll-info">
+        	            <span class="blog-title">{FollowedTitle}</span>
+        	                <a href="{FollowedURL}" class="blogroll-name">@{FollowedName}</a>
+        	            </div><!--end blogroll-info-->
+        	        </div>
+        	        {/block:Followed}
+        	        {/block:Following}
+                </div><!--end blogroll content-->
+            </div><!--end blogroll-->
+            
+            <div id="tags" class="tab-content" data-content="tags">
+                <div id="tags-content">
+                <!--to add more sections, copy from here-->
+                    <div class="tags-grid">
+                        <div class="tags-header">Games by tags</div>
+                        
+                        <!--to add more boxes inside the grid, copy from here-->
+                        <div class="tags-box">
+                            <a href="">Crisis Core: Final Fantasy VII Reunion</a>
+                            <a href="">Dissidia: Final Fantasy</a>
+                            <a href="">Dissidia Duodecim: Final Fantasy</a>
+                            <a href="">Final Fantasy VII Remake</a>
+                            <a href="">Final Fantasy VII Rebirth</a>
+                            <a href="">Final Fantasy XIV: A Realm Reborn</a>
+                            <a href="">Final Fantasy XVI</a>
+                        </div>
+                        <!--to here-->
+                        
+                        <div class="tags-box">
+                            <a href="">Devil Survivor: Overclocked</a>
+                            <a href="">Devil Survivor 2 Record Breaker</a>
+                            <a href="">Persona 3 Reload</a>
+                            <a href="">Persona 4 Golden</a>
+                            <a href="">Persona 5 Royal</a>
+                            <a href="">SMT V: Vengeance</a>
+                        </div>
+                        
+                        <div class="tags-box">
+                            <a href="">Metaphor Re:Fantazio</a>
+                            <a href="">Granblue Fantasy Relink</a>
+                            <a href="">Granblue Fantasy</a>
+                            <a href="">Ensemble Stars! Music</a>
+                            <a href="">A3!</a>
+                        </div>
+                        <!--before this line-->
+                    </div><!--end tags grid-->
+                    <!--to here-->
+                    
+                     <div class="tags-grid">
+                        <div class="tags-header">Favorite characters by tags</div>
+                        
+                        <!--to add more boxes inside the grid, copy from here-->
+                        <div class="tags-box">
+                            <a href="">Zack Fair</a>
+                            <a href="">Aymeric de Borel</a>
+                            <a href="">Estinien Wyrmblood</a>
+                            <a href="">Emet-Selch</a>
+                            <a href="">Hythlodaeus</a>
+                            <a href="">Venat</a>
+                            <a href="">Clive Rosfield</a>
+                            <a href="">Prompto Argentum</a>
+                            <a href="">Noctis Lucis Caelum</a>
+                            <a href="">Ignis Scientia</a>
+                        </div>
+                        <!--to here-->
+                        
+                        <div class="tags-box">
+                            <a href="">Amamiya Ren</a>
+                            <a href="">Makoto Yuuki</a>
+                            <a href="">Mitsuru Kirijo</a>
+                            <a href="">Hifumi Tougo</a>
+                            <a href="">Kotone Shiomi/Hamuko/P3P Protagonist</a>
+                            <a href="">Akihiko Sanada</a>
+                            <a href="">Shinjiro Aragaki</a>
+                            <a href="">Nanako Dojima</a>
+                            <a href="">Naoto Shirogane</a>
+                            <a href="">Yukiko Amagi</a>
+                            <a href="">Margaret (Velvet Room)</a>
+                            <a href="">Theodore (Velvet Room)</a>
+                            
+                        </div>
+                        
+                        <div class="tags-box">
+                            <a href="">Protagonist/Will (Metaphor)</a>
+                            <a href="">Eiselin Hulkenberg</a>
+                            <a href="">Akehoshi Subaru</a>
+                            <a href="">Yukishiro Azuma</a>
+                            <a href="">Leon Strohl</a>
+                            <a href="">Heismay Noctule</a>
+                            <a href="">Maria Alces</a>
+                        </div>
+                        
+                        <div class="tags-box">
+                            <a href="">Elmott</a>
+                            <a href="">Djeeta</a>
+                            <a href="">Charlotta</a>
+                            <a href="">Meteon</a>
+                            <a href="">Cain</a>
+                            <a href="">Pholia</a>
+                            <a href="">Sandalphon</a>
+                            <a href="">Raziel</a>
+                            <a href="">Michael</a>
+                            <a href="">Yuni</a>
+                        </div>
+                        <!--before this line-->
+                    </div><!--end tags grid-->
+                    
+                     <div class="tags-grid">
+                        <div class="tags-header">Favorite people by tags</div>
+                        
+                        <!--to add more boxes inside the grid, copy from here-->
+                        <div class="tags-box">
+                            <a href="">Kakihara Tetsuya</a>
+                            <a href="">Suzumura Kenichi</a>
+                            <a href="">Irino Miyu</a>
+                            <a href="">Sakamoto Maaya</a>
+                            <a href="">Horie Shun</a>
+                            <a href="">Uchiyama Kouki</a>
+                            <a href="">Romi Park</a>
+                            <a href="">Aoi Yuuki</a>
+                            <a href="">Kugimiya Rie</a>
+                            <a href="">Mizuki Nana</a>
+                        </div>
+                        <!--to here-->
+                        
+                        <div class="tags-box">
+                            <a href="">Lewis Capaldi</a>
+                            <a href="">Kygo</a>
+                            <a href="">OneRepublic</a>
+                            <a href="">Owl City</a>
+                            <a href="">Pernelle Music</a>
+                        </div>
+                        <!--before this line-->
+                    </div><!--end tags grid-->
+                    <!--before this line-->
+                </div><!--end tags content-->
+            </div>
+            <!--end tags-->
+            
+            <div id="faq" class="tab-content" data-content="faq">
+            <!--to add more boxes to organize your FAQ, copy from here-->
+                <div class="faq-box">
+                <!--to add more questions and answers, copy from here-->
+                    <div class="ask">
+                        <div class="ask-icon">
+                            <img src="http://i.imgur.com/La7vyCv.png">
+                        <i class="dencar-icons" stroke="1.5" icon-name="mail-open"></i>
+                        </div>
+                        <div class="ask-text">This is the first question. What is this thing?</div>
+                    </div><!--end ask-->
+                    <div class="answer">
+                    <div class="answer-text"><strike>Good question, because I don't know either.</strike>
+                      <br>
+                      <br>
+                      Just kidding! This is the FAQ part of the page, where you can put anything you like here. Questions, answers, or just funny chat.
+                    </div>
+                    <span class="trig">▶</span>
+                    <div class="answer-icon">
+                            <img src="https://i.imgur.com/xBSPG2N.png">
+                        </div><!--end answer-->
+                    </div><!--to here-->
+                    
+                    <div class="ask">
+                        <div class="ask-icon">
+                            <img src="http://i.imgur.com/La7vyCv.png">
+                        <i class="dencar-icons" stroke="1.5" icon-name="mail-open"></i>
+                        </div>
+                        <div class="ask-text">What can I do here?</div>
+                    </div><!--end ask-->
+                    <div class="answer">
+                    <div class="answer-text">
+                        It's a place to put the frequently asked questions to rest. Your followers are required to read and scroll through this section before they can reach the ask box at the bottom of the page. While it won't prevent stray questions that have been answered from going into your inbox, at least the ask box at the bottom will ensure that people have to scroll before asking.
+                    </div>
+                    <span class="trig">▶</span>
+                    <div class="answer-icon">
+                            <img src="https://i.imgur.com/xBSPG2N.png">
+                        </div><!--end answer-->
+                    </div><!--to here-->
+                    
+                    <!--and paste it above this line!-->
+                    
+                </div><!--end faq box-->
+                <!--to here-->
+                
+                 <div class="faq-box">
+                <!--to add more questions and answers, copy from here-->
+                    <div class="ask">
+                        <div class="ask-icon">
+                            <img src="http://i.imgur.com/La7vyCv.png">
+                        <i class="dencar-icons" stroke="1.5" icon-name="mail-open"></i>
+                        </div>
+                        <div class="ask-text">Ooh! Is this a new section?</div>
+                    </div><!--end ask-->
+                    <div class="answer">
+                    <div class="answer-text">You're right! This is a new section. You can add more boxes to do questions by sections of some sort. Think of this as some sort of a divider, so you can group your questions by box/sections.
+                    </div>
+                    <span class="trig">▶</span>
+                    <div class="answer-icon">
+                            <img src="https://i.imgur.com/xBSPG2N.png">
+                        </div><!--end answer-->
+                    </div><!--to here-->
+                    
+                    <div class="ask">
+                        <div class="ask-icon">
+                            <img src="http://i.imgur.com/La7vyCv.png">
+                        <i class="dencar-icons" stroke="1.5" icon-name="mail-open"></i>
+                        </div>
+                        <div class="ask-text">How many question can I add per box?</div>
+                    </div><!--end ask-->
+                    <div class="answer">
+                    <div class="answer-text">
+                       You can add however many you like. No matter how concise or how detailed you like to be, I'm confident you can find a use for this.
+                    </div>
+                    <span class="trig">▶</span>
+                    <div class="answer-icon">
+                            <img src="https://i.imgur.com/xBSPG2N.png">
+                        </div><!--end answer-->
+                    </div><!--to here-->
+                    
+                    <!--and paste it above this line!-->
+                </div><!--end faq box-->
+                
+                    <div class="faq-box" id="ask-box">
+                    <!--change the pneuma-themes.tumblr.com part to YOUR BLOG URL. Make sure you have your ask box enabled!-->
+                        <iframe frameborder="0" scrolling="no" width="100%" height="190" src="http://www.tumblr.com/ask_form/pneuma-themes.tumblr.com" style="background-color:transparent; overflow:hidden;" id="ask_form"></iframe><!--[if IE]><script type="text/javascript">document.getElementById('ask_form').allowTransparency=true;</script><![endif]-->
+                    </div>
+                
+                <!--and paste it before this line!-->
+            </div><!--end faq-->
+        </div><!--end main-container-->
+        
+        <!--right sidebar-->
+        <div class="right sidebar">
+             <div class="sidebar-content">
+                <div class="navigation-links">
+                
+                <!--add your custom links here!-->
+                    <a href="">Link One</a>
+                    <i class="dencar-icons" stroke="1.5" icon-name="link-1"></i>
+                </div><!--end nav links-->
+                <div class="navigation-links">
+                <!--add your custom links here!-->
+                    <a href="">Link Two</a>
+                    <i class="dencar-icons" stroke="1.5" icon-name="link-1"></i>
+                </div><!--end nav links-->
+                <div class="navigation-links">
+                    <a href="">Link Three</a>
+                    <i class="dencar-icons" stroke="1.5" icon-name="link-1"></i>
+                </div><!--end nav links-->
+                <div class="navigation-links">
+                    <a href="">Link Four</a>
+                    <i class="dencar-icons" stroke="1.5" icon-name="link-1"></i>
+                </div><!--end nav links-->
+                <div class="navigation-links">
+                   <a href="">Link Five</a>
+                    <i class="dencar-icons" stroke="1.5" icon-name="link-1"></i>
+                </div><!--end nav links-->
+            </div><!--end sidebar-content-->
+        </div>
+        <!--end right sidebar-->
+        
+    </body>
+    <script>
+      const toggle = document.getElementById("theme-toggle");
+      toggle.onclick = function () {
+        document.documentElement.classList.add("theme-transition");
+        let currentTheme = document.documentElement.getAttribute("data-theme");
+        let targetTheme = "light";
+        if (currentTheme === "light") {
+          targetTheme = "dark";
+        } 
+
+        window.setTimeout(function () {
+          document.documentElement.classList.remove("theme-transition");
+        }, 50);
+        document.documentElement.setAttribute("data-theme", targetTheme);
+        localStorage.setItem("theme", targetTheme);
+      };
+      
+      $(document).ready(function () {
+        //adapted from https://stackoverflow.com/questions/47591474/how-to-switch-through-tabs-in-bulma
+          $('.tabs li').on('click', function() {
+            var tab = $(this).data('tab');
+        
+            $('.tabs li').removeClass('is-active');
+            $(this).addClass('is-active');
+        
+            $('.tab-content').removeClass('is-active');
+            $('[data-content="' + tab + '"]').addClass('is-active');
+          });
+
+      tippy("[title]", {
+        // change these to your liking
+        arrow: false,
+        placement: "bottom", // top, right, bottom, left
+        delay: 5, //ms
+        offset: [0,20], //px or string
+        maxWidth: 300, //px or string
+
+        // leave these as they are
+        followCursor: true,
+        allowHTML: true,
+        theme: "custom",
+        ignoreAttributes: true,
+        content(reference) {
+          const title = reference.getAttribute("title");
+          reference.removeAttribute("title");
+          return title;
+        },
+      });
+    });
+    </script>
+</html>
